@@ -11,11 +11,14 @@ import { Router } from '@angular/router';
 export class ClientsListComponent implements OnInit {
 
   clients: Client[] = [];
+  clientSelected: Client;
+  messageSuccess: string;
+  messageError: string;
 
   constructor(private service: ClientsService,
     private router: Router) {
 
-    }
+  }
 
   ngOnInit(): void {
 
@@ -26,6 +29,19 @@ export class ClientsListComponent implements OnInit {
 
   newRegister(){
     this.router.navigate(['/clients-form'])
+  }
+
+  confirmDelete(client : Client) {
+    this.clientSelected = client;
+  }
+
+  deleteClient(){
+    this.service.delete(this.clientSelected).subscribe(
+      response =>{ this.messageSuccess = 'Record Deleted Successfully!'
+      this.ngOnInit();
+    },
+      errorResponse => this.messageError = 'Error Deleting Record!'
+    )
   }
 
 }
