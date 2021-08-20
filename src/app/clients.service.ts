@@ -12,16 +12,12 @@ export class ClientsService {
   constructor(private http: HttpClient) {
   }
 
-  getClient(): Client {
-    let client: Client = new Client();
-    client.name = 'Denilson Nacimento'
-    client.email = 'denilson@nascimento.com.br'
-    client.phone = "11 94830-0810"
-    return client;
+  getClients(): Observable<Client[]> {
+    return this.http.get<Client[]>('http://localhost:8080/clients')
   }
 
-  save(client: Client) : Observable<Client> {
-      return this.http.post<Client>('http://localhost:8080/clients', client)
+  save(client: Client): Observable<Client> {
+    return this.http.post<Client>('http://localhost:8080/clients', client)
   }
 
 }

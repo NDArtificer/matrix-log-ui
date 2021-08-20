@@ -3,16 +3,16 @@
     <li class="breadcrumb-item active">Register</li>
 </ol>
 <div class="container">
-    <form #clientForm ="ngForm" (ngSubmit)="submit()">
-        
+    <form #clientForm="ngForm" (ngSubmit)="submit()">
+
         <div class="row">
             <div class="col-md-12">
                 <div class="alert alert-success" role="alert" *ngIf="success==true">
                     Cliente Salvo com Sucesso!
-                  </div>
-                  <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
                     {{error}}
-                  </div>
+                </div>
 
             </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="col-md-6" *ngIf="client.id">
                 <div class="form-group">
                     <label>ID:</label>
-                    <input type="text" class="form-control"  [ngModel]="client.id" name="id" disabled="true" />
+                    <input type="text" class="form-control" [ngModel]="client.id" name="id" disabled="true" />
                 </div>
             </div>
             <div class="col-md-6">
@@ -35,7 +35,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Name *</label>
-                    <input type="text" class="form-control" [(ngModel)]="client.name" name="name"/>
+                    <input type="text" class="form-control" [(ngModel)]="client.name" name="name" />
                 </div>
             </div>
             <div class="col-md-6">
@@ -47,11 +47,15 @@
         </div>
 
         <div class="row">
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-success" >
-                    <i class="fa fa-save"></i>Save
+            <div class="col-md-10">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save"></i> Save
+                </button>
+                <button type="button" class="btn btn-danger ml-1" (click)="backToList()">
+                    <i class="fa fa-arrow-alt-circle-left"></i> Back
                 </button>
             </div>
+            
         </div>
 
     </form>
