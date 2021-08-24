@@ -1,0 +1,95 @@
+<h1 class="md-4"> Deliveries </h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrum-bitem active"> New</li>
+</ol>
+<div class="container">
+    <form #form="ngForm" (submit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label> Client: </label>
+                    <select class="form-control" 
+                                [ngModelOptions]="{standalone: true}"
+                                [(ngModel)]="delivery.client.id"  name="client"  >
+                        <option value=""> Select... </option>
+                        <option *ngFor="let client of clients" [ngValue]="client.id">
+                            {{ client.name }}
+                        </option>
+                    </select>
+                </div>
+            </div> 
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label >
+                       Recipient Name
+                    </label>
+                    <input class="form-control" [(ngModel)]="recipient.name" name="name" type="text" id="inputRecipentName">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label >
+                       Recipient Address
+                    </label>
+                    <input class="form-control" [(ngModel)]="recipient.address" name="address" type="text" id="inputRecipentaddress">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label >
+                       Recipient Number
+                    </label>
+                    <input class="form-control" [(ngModel)]="recipient.number" name="number" type="text" id="inputRecipentNumber">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label >
+                       Recipient Complement
+                    </label>
+                    <input class="form-control" [(ngModel)]="recipient.complement" name="complement" type="text" id="inputRecipentComplement">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label >
+                       Recipient District
+                    </label>
+                    <input class="form-control" [(ngModel)]="recipient.district" name="district" type="text" id="inputRecipentDistrict">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label >
+                        Tax
+                    </label>
+                    <input class="form-control" [(ngModel)]="delivery.tax" name="Tax" type="number" id="inputRecipentTax">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3"><button class= "btn btn-success" type="submit"> <i class="fa fa-save"></i> Save</button></div>
+        </div>
+
+    </form>
+</div>
