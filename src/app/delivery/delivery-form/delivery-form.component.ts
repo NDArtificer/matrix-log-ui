@@ -1,3 +1,4 @@
+import { DeliveryService } from './../../delivery.service';
 import { Recipient } from './../recipient';
 import { Delivery } from './../delivery';
 import { Component, OnInit } from '@angular/core';
@@ -17,8 +18,12 @@ export class DeliveryFormComponent implements OnInit {
   delivery: Delivery
   recipient: Recipient
 
+  success: boolean = false;
+  errors: String[] = [];
+
   constructor(
-    private clientService: ClientsService
+    private clientService: ClientsService,
+    private deliveryService: DeliveryService
 
   ) { 
     this.delivery = new Delivery();
@@ -35,8 +40,33 @@ export class DeliveryFormComponent implements OnInit {
       .subscribe(response => this.clients = response)
   }
 
-  onSubmit(){
-    console.log(this.delivery)
+  onSubmit() {
+    this.deliveryService
+      .save(this.delivery)
+      .subscribe(response => {
+        console.log(response)
+        this.success = true;
+        this.errors = [];
+        this.delivery.client = new ClientId();
+        this.delivery.recipient = new Recipient();
+
+      }, errorResponse => {
+        console.log(errorResponse)
+        this.success = false;
+        this.errors = [];
+
+        var jsonArray = errorResponse.error.fields;
+
+        if (!(jsonArray === null || jsonArray === undefined)) {
+          jsonArray.forEach((element: { name: any; message: any; }) => {
+            this.errors.push(element.name + ': ' + element.message);
+          });
+        } else {
+          var jsonArray = errorResponse.error.title
+          this.errors.push(jsonArray);
+        }
+      }
+      )
 
   }
 

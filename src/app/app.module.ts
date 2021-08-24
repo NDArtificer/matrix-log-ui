@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component'
 import { DeliveryModule } from './delivery/delivery.module';
-
+import { DeliveryService } from './delivery.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { DeliveryModule } from './delivery/delivery.module';
     DeliveryModule
   ],
   providers: [
-    ClientsService
+    ClientsService,
+    DeliveryService
   ],
   bootstrap: [AppComponent]
 })
