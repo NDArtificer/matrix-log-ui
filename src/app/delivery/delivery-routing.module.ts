@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'delivery-form', component: DeliveryFormComponent},
+  { path: 'delivery-form/:id', component: DeliveryFormComponent},
   { path: 'delivery-list', component: DeliveryListComponent}
 ];
 

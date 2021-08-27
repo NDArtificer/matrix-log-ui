@@ -45,10 +45,10 @@
                         <td>{{ client.email }}</td>
                         <td>{{ client.phone }}</td>
                         <td>
-                            <button class="btn btn-primary md-3" routerLink="/clients-form/{{ client.id }}">
+                            <button class="btn btn-primary" routerLink="/clients-form/{{ client.id }}">
                                 <i class="fa fa-edit"></i>
                             </button>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#modalDelete"
+                            <button class="btn btn-danger ml-1" data-toggle="modal" data-target="#modalDelete"
                                 (click)="confirmDelete(client)">
                                 <i class="fa fa-trash"></i>
                             </button>

@@ -1,1 +1,50 @@
-<p>delivery-list works!</p>
+<h1>Delivery</h1>
+<ol class="breadcrumb md-4">
+    <li class="breadcrumb-item active"> Consult </li>
+</ol>
+<div class="container">
+    <form>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <button class="btn btn-success" (click)="newDelivery()">
+                    <i class="fa fa-plus"></i> New
+                </button>
+    
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Record Date</th>
+                            <th>End Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let delivery of deliveries">
+                            <td>{{ delivery.id }}</td>
+                            <td>{{ delivery.client.name }}</td>
+                            <td>{{ delivery.status }}</td>
+                            <td>{{ delivery.recordDate }}</td>
+                            <td>{{ delivery.endDate }}</td>
+                            <td>
+                                <button class="btn btn-primary md-3" routerLink="/delivery-form/{{ delivery.id }}">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </form>
+</div>
