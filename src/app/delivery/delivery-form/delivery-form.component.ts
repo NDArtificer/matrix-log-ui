@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from 'src/app/clients/client';
 import { ClientsService } from 'src/app/clients.service';
 import { ClientId } from '../clientId';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -30,6 +30,7 @@ export class DeliveryFormComponent implements OnInit {
   errors: String[] = [];
 
   constructor(
+    private router: Router,
     private clientService: ClientsService,
     private deliveryService: DeliveryService,
     private activetedRoute: ActivatedRoute
@@ -156,6 +157,10 @@ export class DeliveryFormComponent implements OnInit {
         }
       }
       )
+  }
+
+  backToList() {
+    this.router.navigate(['/delivery/list'])
   }
 
 

@@ -42,7 +42,7 @@ export class DeliveryListComponent implements OnInit {
 
 
   newDelivery(){
-    this.router.navigate(['/delivery-form'])
+    this.router.navigate(['/delivery/form'])
   }
 
 }

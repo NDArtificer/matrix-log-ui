@@ -34,8 +34,11 @@
                             <td>{{ delivery.recordDate }}</td>
                             <td>{{ delivery.endDate }}</td>
                             <td>
-                                <button class="btn btn-primary md-3" routerLink="/delivery-form/{{ delivery.id }}">
+                                <button class="btn btn-primary md-3" routerLink="/delivery/form/{{ delivery.id }}">
                                     <i class="fa fa-edit"></i>
+                                </button>
+                                <button class="btn btn-warning ml-2" routerLink="/delivery/form/{{ delivery.id }}/events">
+                                    <i class="fa fa-comments"></i>
                                 </button>
                             </td>
 

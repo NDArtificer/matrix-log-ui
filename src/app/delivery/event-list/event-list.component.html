@@ -1,0 +1,43 @@
+<h1>Events</h1>
+<ol class="breadcrumb md-4">
+    <li class="breadcrumb-item active"> List Events </li>
+</ol>
+<div class="container">
+    <form>
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-success" (click)="newEvent()">
+                    <i class="fa fa-plus"></i> New
+                </button>
+                <button class="btn btn-danger ml-2" (click)="goBack()">
+                    <i class="fa fa-arrow-alt-circle-left"></i> Back
+                </button>
+    
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Registration Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let event of events">
+                            <td>{{ event.id }}</td>
+                            <td>{{ event.description }}</td>
+                            <td>{{ event.registrationDate }}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </form>
+</div>

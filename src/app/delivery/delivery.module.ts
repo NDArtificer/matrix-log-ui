@@ -6,11 +6,13 @@ import { DeliveryRoutingModule } from './delivery-routing.module';
 import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
 import { DeliveryListComponent } from './delivery-list/delivery-list.component';
 import { RouterModule } from '@angular/router';
+import { EventListComponent } from './event-list/event-list.component';
 
 @NgModule({
   declarations: [
     DeliveryFormComponent,
-    DeliveryListComponent
+    DeliveryListComponent,
+    EventListComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     DeliveryFormComponent,
-    DeliveryListComponent
+    DeliveryListComponent,
+    EventListComponent
   ]
 })
 export class DeliveryModule { }

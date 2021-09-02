@@ -1,0 +1,48 @@
+<h1 class="md-4"> Events </h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"> New Events </li>
+
+</ol>
+
+<div class="container">
+    <form #form="ngForm">
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="success==true">
+                    Delivery Created/Updated Successfully!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+                    {{error}}
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>
+                        Description
+                    </label>
+                    <input class="form-control" [(ngModel)]="description" name="description" type="text"
+                        id="InputEventDescription">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-primary" (click)=onSubmit() > 
+                    <i class="fa fa-save"></i> Add Event
+                </button>
+                <button type="button" class="btn btn-danger ml-1" (click)="backToList()" >
+                    <i class="fa fa-arrow-alt-circle-left"></i> Back
+                </button>
+
+            </div>
+        </div>
+
+    </form>
+</div>
