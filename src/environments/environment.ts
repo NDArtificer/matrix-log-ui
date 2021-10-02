@@ -2,9 +2,14 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { APP_ID } from "@angular/core";
+
 export const environment = {
   production: false,
-  apiUrlBase: 'http://localhost:8080'
+  apiUrlBase: 'http://localhost:8080',
+  clientId: 'matrix-api',
+  clientSecret:'@Matrix',
+  tokenUrl: '/oauth/token'
 };
 
 /*

@@ -15,6 +15,7 @@ import { DeliveryService } from './delivery.service';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { EventFormComponent } from './delivery/event-form/event-form.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EventFormComponent } from './delivery/event-form/event-form.component';
   ],
   providers: [
     ClientsService,
-    DeliveryService
+    DeliveryService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
