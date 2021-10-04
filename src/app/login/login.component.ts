@@ -27,6 +27,9 @@ export class LoginComponent {
 
     this.authService.doLogin(this.name, this.password).subscribe( response =>{
       console.log(response);
+
+      const access_token = JSON.stringify(response);
+      localStorage.setItem('access_token', access_token)
       this.router.navigate(['/home']);
     },errorResponse =>{
       this.errors =['Usuários/Senhas incorretos!']

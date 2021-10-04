@@ -5,11 +5,12 @@ import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EventFormComponent } from './event-form/event-form.component';
+import { AuthGuard } from '../auth.guard';
 
 const routes: Routes = [
 
   {
-    path: 'delivery', component: LayoutComponent, children: [
+    path: 'delivery', component: LayoutComponent, canActivate: [AuthGuard], children: [
 
       { path: 'form', component: DeliveryFormComponent },
       { path: 'form/:id', component: DeliveryFormComponent },
